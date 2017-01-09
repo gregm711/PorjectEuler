@@ -16,10 +16,8 @@ package main
 
 import (
 	"fmt"
-	"runtime"
-	"sync"
-	//"math"
 	"math"
+	"runtime"
 )
 
 func sieveFactors(N int) (sum int) {
@@ -60,7 +58,7 @@ func findChain(num int, currentChain []int) []int {
 }
 
 func main() {
-	runtime.GOMAXPROCS(2)
+	runtime.GOMAXPROCS(6)
 
 	start := 12496
 	oldChain := []int{start}
@@ -68,7 +66,6 @@ func main() {
 		newChain := findChain(x, []int{x})
 		if len(newChain) >= len(oldChain) {
 			oldChain = newChain
-			fmt.Println(x)
 		}
 	}
 	fmt.Println("done", oldChain)
