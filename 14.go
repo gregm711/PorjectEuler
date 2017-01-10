@@ -20,30 +20,31 @@ import (
 	"fmt"
 )
 
-func sequence(x int, len int) (final int) {
+func sequence(x int, len int) int {
 	if x == 1 {
-		final := len
+		return len
 	}
 	if x%2 != 0 {
-
-		sequence(3*x+1, len+1)
+		 return sequence(3*x+1, len+1)
 	}
 	if x%2 == 0 {
-		sequence(x/2, len+1)
+		return sequence(x/2, len+1)
 	}
-	return
+	return len
 
 }
 
 func main() {
-	//highest := 0
-	//for x := 1000000; x > 1; x-- {
-	//
-	//	if sequence(x, 1) > highest {
-	//		highest = x
-	//	}
-	//}
-	final := sequence(13, 11)
-	fmt.Println(final)
+	highestNum := 0
+	highestSequence := 0
 
+
+	for x := 1000000; x > 1; x-- {
+		seq := sequence(x,1)
+		if seq > highestSequence {
+			highestNum = x
+			highestSequence = seq
+		}
+	}
+	fmt.Println(highestNum, highestSequence)
 }
