@@ -30,7 +30,6 @@ func generatePrimes(limit int) (primes []int) {
 		}
 	}
 	return
-
 }
 
 func generateExpressions (primes []int, solution int) bool {
